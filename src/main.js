@@ -20,26 +20,7 @@ document.addEventListener('alpine:init', () => {
         }
     }));
 
-    Alpine.data('sortTags', () => ({
-        open: null,
-        selected: {},
-        tags: [
-            {
-                key: 'discount',
-                name: 'Скидка',
-                options: [
-                    { label: 'По возрастанию', value: 'asc' },
-                    { label: 'По убыванию', value: 'desc' },
-                ],
-            }
-            // ... остальные теги
-        ],
-        toggle(key) { this.open = this.open === key ? null : key; },
-        select(tagKey, value) {
-            this.selected[tagKey] = value;
-            this.open = null;
-        }
-    }));
+
 });
 
 // 2. ЗАПУСК ДОЛЖЕН БЫТЬ В САМОМ КОНЦЕ

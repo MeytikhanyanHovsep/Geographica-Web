@@ -61,32 +61,83 @@
   }
 }
 
+input[type=range] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  width: 100%;
+  background: none;
+  /* Убираем фон */
+  pointer-events: none;
+  /* Клик проходит сквозь инпут */
+  z-index: 2;
+  height: 0;
+  top: 0;
+  outline: none;
+}
+
+/* Настройки для ползунка (кружка) в Chrome/Safari */
 input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
   pointer-events: all;
+  /* Кружок ловит клик */
   width: 20px;
   height: 20px;
+  background: radial-gradient(circle, black 30%, white 31%);
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  cursor: pointer;
+  position: relative;
+  z-index: 10;
+}
+
+/* Настройки для ползунка (кружка) в Firefox */
+input[type=range]::-moz-range-thumb {
+  pointer-events: all;
+  /* Кружок ловит клик */
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(circle, black 30%, white 31%);
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  cursor: pointer;
+  border: none;
+}
+
+/* Убираем стандартную серую линию Firefox */
+input[type=range]::-moz-range-track {
+  background: transparent;
+  border: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
+  pointer-events: all;
+  /* Делает ручку активной для клика */
+  width: 20px;
+  height: 20px;
   background: radial-gradient(circle, black 30%, white 31%);
   border: 1px solid #d1d5db;
   border-radius: 50%;
   cursor: pointer;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
-  position: relative;
   z-index: 20;
 }
 
-input[type=range] {
-  -webkit-appearance: none;
-  appearance: none;
-  background: transparent;
-  pointer-events: none;
-  position: absolute;
-  top: -9px;
-  width: 100%;
+input[type=range]::-moz-range-thumb {
+  pointer-events: all;
+  /* Важно для Firefox */
+  width: 20px;
   height: 20px;
-  margin: 0;
-  outline: none;
+  background: radial-gradient(circle, black 30%, white 31%);
+  border: 1px solid #d1d5db;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+  border: none;
 }
+
 
 .accent-gold {
   accent-color: #D9B863;

@@ -38,6 +38,16 @@ function onRangeInput(e) {
             rangeMax.value = minVal + minGap;
         }
     }
+
+    if (e.target.id === "range-min") {
+        rangeMin.style.zIndex = "5";
+        rangeMax.style.zIndex = "2";
+    } else {
+        rangeMin.style.zIndex = "2";
+        rangeMax.style.zIndex = "5";
+    }
+    // ------------------------------------------
+
     inputMin.value = formatNumber(rangeMin.value);
     inputMax.value = formatNumber(rangeMax.value);
     updateProgress();
